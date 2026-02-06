@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Nobir | Contacto - Colaboraciones y Proyectos</title>
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">EN</div>
+                <div class="logo-text">
+                    <div class="logo-main">EL NOBIR</div>
+                    <div class="logo-sub">CONTACTO</div>
+                </div>
+            </a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">INICIO</a></li>
+                <li class="nav-item"><a href="discografia.html" class="nav-link">DISCROGRAFÍA</a></li>
+                <li class="nav-item"><a href="portafolio.html" class="nav-link">PORTAFOLIO</a></li>
+                <li class="nav-item"><a href="contacto.html" class="nav-link active">CONTACTO</a></li>
+            </ul>
+            
+            <button class="mobile-toggle">
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Contacto -->
+    <section class="hero contacto-hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">TRABAJEMOS JUNTOS</h1>
+                <p class="hero-subtitle">Colaboraciones, proyectos y nuevas ideas</p>
+            </div>
+        </div>
+        
+        <div class="hero-scroll">
+            <span>CONECTEMOS</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- Información de Contacto -->
+    <section class="section contact-info-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>EMAIL</h3>
+                    <p>hola@elnobir.com</p>
+                    <p>Respuesta en 24-48 horas</p>
+                    <a href="mailto:hola@elnobir.com" class="btn btn-outline btn-small">
+                        <i class="fas fa-paper-plane"></i> ENVIAR EMAIL
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>AGENDA UNA LLAMADA</h3>
+                    <p>Disponible para consultas</p>
+                    <p>Lunes a Viernes • 10:00-18:00</p>
+                    <a href="#schedule-form" class="btn btn-outline btn-small">
+                        <i class="fas fa-phone"></i> AGENDAR LLAMADA
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>UBICACIÓN</h3>
+                    <p>Madrid, España</p>
+                    <p>Disponible para proyectos en todo el mundo</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline btn-small">
+                        <i class="fas fa-directions"></i> VER EN MAPA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Formulario de Contacto -->
+<section class="section form-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">ENVÍAME TU PROYECTO</h2>
+            <p class="section-subtitle">Cuéntame sobre tu idea y trabajemos juntos en hacerla realidad</p>
+        </div>
+        
+        <div class="form-container">
+            <!-- FORMULARIO ACTUALIZADO CON FORMSPREE -->
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/xbdarpwg" method="POST">
+                    
+                <input type="hidden" name="_next" value="https://rafa930music-sudo.github.io/El-Nobir-Pagina-Web/contacto.html?success=contacto">
+    <input type="hidden" name="_autoresponse" value="Gracias por tu mensaje. Te responderé en 48 horas.">
+
+                <!-- CAMPOS OCULTOS PARA FORMSPREE -->
+                <input type="hidden" name="_language" value="es">
+                <input type="hidden" name="_subject" value="Nuevo proyecto - Sitio web El Nobir">
+                <input type="hidden" name="_replyto" value="eelnobir@gmail.com">
+                
+                <div class="form-group">
+                    <label for="name">Nombre completo *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="project-type">Tipo de proyecto *</label>
+                    <select id="project-type" name="project-type" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="musica">Producción musical / Beats</option>
+                        <option value="video">Video clip / Producción visual</option>
+                        <option value="fotos">Sesión fotográfica</option>
+                        <option value="colaboracion">Colaboración artística</option>
+                        <option value="otros">Otro tipo de proyecto</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Presupuesto aproximado</label>
+                    <select id="budget" name="budget">
+                        <option value="" selected>Sin presupuesto definido</option>
+                        <option value="500-1000">500€ - 1.000€</option>
+                        <option value="1000-3000">1.000€ - 3.000€</option>
+                        <option value="3000-5000">3.000€ - 5.000€</option>
+                        <option value="5000+">Más de 5.000€</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="message">Describe tu proyecto *</label>
+                    <textarea id="message" name="message" rows="6" required placeholder="Cuéntame sobre tu idea, inspiración, timeline, y cualquier detalle importante..."></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="references">Referencias / Links relevantes</label>
+                    <input type="text" id="references" name="references" placeholder="Links de Instagram, Spotify, ejemplos visuales, etc.">
+                </div>
+                
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> ENVIAR PROPUESTA
+                    </button>
+                    <p class="form-note">* Te responderé en un plazo máximo de 48 horas</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Servicios -->
+    <section class="section services-contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿QUÉ PUEDO OFRECERTE?</h2>
+            </div>
+            
+            <div class="services-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="musica">PRODUCCIÓN MUSICAL</button>
+                    <button class="tab-btn" data-tab="visual">PRODUCCIÓN VISUAL</button>
+                    <button class="tab-btn" data-tab="colaboracion">COLABORACIONES</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="musica">
+                        <h3>PRODUCCIÓN MUSICAL Y BEATS</h3>
+                        <p>Trabajo con artistas para crear el sonido perfecto para sus proyectos. Desde la producción completa hasta la venta de beats exclusivos.</p>
+                        
+                        <div class="service-details">
+                            <div class="detail-card">
+                                <h4><i class="fas fa-headphones"></i> BEATS EXCLUSIVOS</h4>
+                                <p>Beats producidos específicamente para tu proyecto, con derechos completos.</p>
+                                <ul>
+                                    <li>Precio: Desde 150€ por beat</li>
+                                    <li>Incluye: Trackouts + Derechos</li>
+                                    <li>Tiempo: 3-5 días laborables</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="detail-card">
+                                <h4><i class="fas fa-sliders-h"></i> MEZCLA Y MASTERING</h4>
+                                <p>Servicio profesional de mezcla y mastering para darle el toque final a tu canción.</p>
+                                <ul>
+                                    <li>Precio: Desde 100€ por canción</li>
+                                    <li>Incluye: 2 revisiones</li>
+                                    <li>Formato: WAV 24-bit</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="detail-card">
+                                <h4><i class="fas fa-microphone"></i> PRODUCCIÓN COMPLETA</h4>
+                                <p>Desarrollo de un proyecto musical desde cero, incluyendo composición, producción y arreglos.</p>
+                                <ul>
+                                    <li>Precio: Personalizado</li>
+                                    <li>Proceso: Consulta inicial</li>
+                                    <li>Resultado: Proyecto finalizado</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="visual">
+                        <h3>PRODUCCIÓN VISUAL</h3>
+                        <p>Creación de contenido visual de alta calidad para artistas y marcas. Desde video clips hasta sesiones fotográficas.</p>
+                        
+                        <div class="service-details">
+                            <div class="detail-card">
+                                <h4><i class="fas fa-video"></i> VIDEO CLIPS</h4>
+                                <p>Producción completa de videos musicales, desde la preproducción hasta la edición final.</p>
+                                <ul>
+                                    <li>Precio: Desde 800€</li>
+                                    <li>Duración: 2-4 minutos</li>
+                                    <li>Entrega: 2-3 semanas</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="detail-card">
+                                <h4><i class="fas fa-camera"></i> SESIONES FOTOGRÁFICAS</h4>
+                                <p>Sesiones profesionales en estudio o exteriores para artistas, modelos o contenido de marca.</p>
+                                <ul>
+                                    <li>Precio: Desde 250€</li>
+                                    <li>Fotos: 15-25 editadas</li>
+                                    <li>Sesión: 2-3 horas</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="detail-card">
+                                <h4><i class="fas fa-photo-video"></i> CONTENIDO PARA REDES</h4>
+                                <p>Creación de contenido visual específico para Instagram, TikTok y otras plataformas.</p>
+                                <ul>
+                                    <li>Precio: Paquetes desde 300€</li>
+                                    <li>Contenido: 10-15 piezas</li>
+                                    <li>Plataformas: Multi-formato</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="colaboracion">
+                        <h3>COLABORACIONES ARTÍSTICAS</h3>
+                        <p>Como artista, estoy abierto a colaboraciones en proyectos musicales y creativos que me inspiren.</p>
+                        
+                        <div class="collaboration-types">
+                            <div class="collab-card">
+                                <h4><i class="fas fa-microphone-alt"></i> FEATURINGS VOCALES</h4>
+                                <p>Colaboración en canciones de otros artistas, aportando versos o estribillos.</p>
+                                <p><strong>Proceso:</strong>Envío de track → Grabación → Entrega</p>
+                            </div>
+                            
+                            <div class="collab-card">
+                                <h4><i class="fas fa-compact-disc"></i> PROYECTOS CONJUNTOS</h4>
+                                <p>Desarrollo de proyectos EP o álbumes completos en colaboración con otros artistas.</p>
+                                <p><strong>Enfoque:</strong> Co-creación desde cero</p>
+                            </div>
+                            
+                            <div class="collab-card">
+                                <h4><i class="fas fa-paint-brush"></i> FUSIONES CREATIVAS</h4>
+                                <p>Proyectos que mezclan música con otras disciplinas artísticas.</p>
+                                <p><strong>Ejemplos:</strong> Música + Arte visual, Instalaciones, Performances</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Formulario Agendar Llamada -->
+<section id="schedule-form" class="section schedule-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">AGENDA UNA LLAMADA</h2>
+            <p class="section-subtitle">Hablemos directamente sobre tu proyecto</p>
+        </div>
+        
+        <div class="schedule-container">
+            <div class="schedule-info">
+                <h3>INFORMACIÓN DE LAS CONSULTAS</h3>
+                <ul>
+                    <li><i class="fas fa-clock"></i> <strong>Duración:</strong> 30 minutos</li>
+                    <li><i class="fas fa-calendar"></i> <strong>Disponibilidad:</strong> Lunes a Viernes</li>
+                    <li><i class="fas fa-video"></i> <strong>Plataforma:</strong> Zoom / Google Meet</li>
+                    <li><i class="fas fa-check"></i> <strong>Preparación:</strong> Envía detalles previos</li>
+                </ul>
+                
+                <div class="schedule-note">
+                    <h4><i class="fas fa-lightbulb"></i> RECOMENDACIÓN:</h4>
+                    <p>Para aprovechar al máximo la llamada, te sugiero que antes de agendar:</p>
+                    <ol>
+                        <li>Definas claramente los objetivos de tu proyecto</li>
+                        <li>Tengas referencias visuales o musicales</li>
+                        <li>Consideres tu presupuesto y timeline</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="schedule-form">
+                <!-- FORMULARIO DE LLAMADA ACTUALIZADO CON FORMSPREE -->
+                <form id="schedule-call-form" action="https://formspree.io/f/xaqdwlkd" method="POST">
+                   
+                      <input type="hidden" name="_next" value="https://rafa930music-sudo.github.io/El-Nobir-Pagina-Web/contacto.html?success=llamada">
+    <input type="hidden" name="_autoresponse" value="Confirmación de llamada recibida. Te contactaré pronto.">
+    
+                 <!-- CAMPOS OCULTOS PARA FORMSPREE -->
+                    <input type="hidden" name="_language" value="es">
+                    <input type="hidden" name="_subject" value="Solicitud de llamada - El Nobir">
+                    
+                    <div class="form-group">
+                        <label for="call-name">Nombre *</label>
+                        <input type="text" id="call-name" name="call-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="call-email">Email *</label>
+                        <input type="email" id="call-email" name="call-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="call-date">Fecha preferida *</label>
+                        <input type="date" id="call-date" name="call-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="call-time">Hora preferida *</label>
+                        <select id="call-time" name="call-time" required>
+                            <option value="" disabled selected>Selecciona hora</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                            <option value="17:00">5:00 PM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="call-project">Breve descripción del proyecto *</label>
+                        <textarea id="call-project" name="call-project" rows="3" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i> AGENDAR LLAMADA
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-title">EL NOBIR</h3>
+                    <p class="footer-desc">Artista • Productor • Creador Visual</p>
+                    <p class="footer-quote">"Creando puentes entre sonidos e imágenes"</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>EXPLORAR</h4>
+                    <ul>
+                        <li><a href="index.html">Mi Historia</a></li>
+                        <li><a href="discografia.html">Discografía</a></li>
+                        <li><a href="portafolio.html">Portafolio Visual</a></li>
+                        <li><a href="contacto.html">Contacto & Colaboraciones</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>CONECTA</h4>
+                    <p><i class="fas fa-envelope"></i> hola@elnobir.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+                    <p><i class="fas fa-calendar-alt"></i> Disponible para proyectos</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 El Nobir. Todos los derechos reservados.</p>
+                <p class="footer-signature">Hecho con ❤️ y muchos beats</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de confirmación -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>¡MENSAJE ENVIADO!</h3>
+            <p id="modalMessage">Gracias por contactarme. Te responderé en un plazo máximo de 48 horas.</p>
+            <button class="btn btn-primary" id="modalClose">ACEPTAR</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
