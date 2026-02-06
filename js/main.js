@@ -770,3 +770,52 @@ function setupImageModal() {
         }
     });
 }
+// Toggle del tema
+const themeToggle = document.querySelector('.toggle-btn');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Verificar tema guardado o preferencia del sistema
+const currentTheme = localStorage.getItem('theme') || 
+                    (prefersDarkScheme.matches ? 'dark' : 'light');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+}
+
+// Cambiar tema al hacer clic
+themeToggle.addEventListener('click', function() {
+    let theme = document.documentElement.getAttribute('data-theme');
+    
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+});
+
+// Actualizar icono según el tema
+function updateThemeIcon() {
+    const theme = document.documentElement.getAttribute('data-theme');
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+    
+    if (theme === 'dark') {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+    } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+    }
+}
+
+// Observar cambios en el atributo data-theme
+const observer = new MutationObserver(updateThemeIcon);
+observer.observe(document.documentElement, { 
+    attributes: true, 
+    attributeFilter: ['data-theme'] 
+});
+
+// Inicializar icono
+updateThemeIcon();
