@@ -1,5 +1,5 @@
 // ===========================================
-// EL NOBIR - main.js COMPLETO - VERSIÓN FINAL CORREGIDA
+// EL NOBIR - main.js CORREGIDO (SIN SCROLL AUTOMÁTICO)
 // ===========================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -11,12 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.player-section')) {
         console.log('🎵 Página de discografía detectada');
         
-        const playerSection = document.querySelector('.player-section');
-        if (playerSection) {
-            setTimeout(() => {
-                initMusicPlayer();
-            }, 300);
-        }
+        // INICIALIZAR PERO SIN CARGAR CANCIÓN AUTOMÁTICAMENTE
+        setTimeout(() => {
+            initMusicPlayer();
+        }, 500);
     }
     
     // ===========================================
@@ -73,35 +71,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ===========================================
-    // CONFIGURAR FORMULARIOS FORMSPREE - VERSIÓN CORREGIDA
+    // CONFIGURAR FORMULARIOS FORMSPREE
     // ===========================================
     setupFormspreeForms();
 });
 
 // ===========================================
-// FORMULARIOS FORMSPREE - VERSIÓN MEJORADA (COMPLETAMENTE CORREGIDA)
+// FORMULARIOS FORMSPREE
 // ===========================================
 
 function setupFormspreeForms() {
     const forms = document.querySelectorAll('form[action*="formspree"]');
     
-    if (forms.length === 0) {
-        console.log('ℹ️ No se encontraron formularios Formspree');
-        return;
-    }
-    
-    console.log(`📝 Configurando ${forms.length} formulario(s) Formspree...`);
+    if (forms.length === 0) return;
     
     forms.forEach(form => {
-        // Eliminar campos de redirección porque usaremos AJAX
-        const nextField = form.querySelector('input[name="_next"]');
-        const autoresponseField = form.querySelector('input[name="_autoresponse"]');
-        if (nextField) nextField.remove();
-        if (autoresponseField) autoresponseField.remove();
-        
         form.addEventListener('submit', async function(e) {
-            e.preventDefault(); // Prevenir envío normal - usaremos AJAX
-            console.log('📤 Enviando formulario a Formspree...');
+            e.preventDefault();
             
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.innerHTML;
@@ -113,51 +99,30 @@ function setupFormspreeForms() {
             try {
                 const formData = new FormData(this);
                 
-                // IMPORTANTE: Incluir el header 'Accept' para recibir JSON
                 const response = await fetch(this.action, {
                     method: 'POST',
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
                 
-                console.log('📨 Respuesta de Formspree:', response.status);
-                
                 if (response.ok) {
-                    // ÉXITO: Formspree recibió el mensaje
-                    console.log('✅ Formulario enviado exitosamente a Formspree');
-                    
-                    // Determinar mensaje según formulario
                     let title = '¡MENSAJE ENVIADO!';
-                    let message = 'Gracias por tu mensaje. Te responderé en un plazo máximo de 48 horas.';
+                    let message = 'Gracias por tu mensaje. Te responderé en 48 horas.';
                     
                     if (formId === 'schedule-call-form') {
                         title = '¡LLAMADA AGENDADA!';
-                        message = 'Solicitud de llamada recibida. Revisaré mi agenda y te confirmaré la fecha y hora por email.';
+                        message = 'Solicitud recibida. Te confirmaré por email.';
                     }
                     
-                    // Mostrar modal con mensaje correcto
                     showSuccessModal(title, message);
-                    
-                    // Limpiar formulario
                     this.reset();
-                    
                 } else {
-                    // ERROR de Formspree
-                    console.error('❌ Error en Formspree:', response.status);
-                    const errorData = await response.json();
-                    console.error('Detalles del error:', errorData);
-                    showErrorModal('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o escríbeme a hola@elnobir.com');
+                    showErrorModal('Error al enviar. Intenta nuevamente.');
                 }
                 
             } catch (error) {
-                // ERROR DE RED
-                console.error('❌ Error de red:', error);
-                showErrorModal('Error de conexión. Por favor, verifica tu internet e intenta nuevamente.');
-                
+                showErrorModal('Error de conexión. Verifica tu internet.');
             } finally {
-                // Restaurar botón
                 setTimeout(() => {
                     submitBtn.innerHTML = originalBtnText;
                     submitBtn.disabled = false;
@@ -166,13 +131,13 @@ function setupFormspreeForms() {
         });
     });
     
-    // Configurar cierre del modal de confirmación
     setupModalClose();
-    
-    console.log('✅ Formularios Formspree configurados');
 }
 
-// Función para mostrar modal de éxito - CORREGIDA
+// ===========================================
+// FUNCIONES DEL MODAL
+// ===========================================
+
 function showSuccessModal(title, message) {
     const modal = document.getElementById('confirmationModal');
     const modalTitle = modal.querySelector('h3');
@@ -185,19 +150,17 @@ function showSuccessModal(title, message) {
     
     modalTitle.textContent = title;
     modalMessage.textContent = message;
-    modal.style.display = 'flex';  // CORREGIDO: 'flex' en lugar de 'block'
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     
-    // Cerrar automáticamente después de 5 segundos
     setTimeout(() => {
-        if (modal.style.display === 'flex') {  // CORREGIDO
+        if (modal.style.display === 'flex') {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     }, 5000);
 }
 
-// Función para mostrar modal de error - CORREGIDA
 function showErrorModal(message) {
     const modal = document.getElementById('confirmationModal');
     const modalTitle = modal.querySelector('h3');
@@ -210,7 +173,7 @@ function showErrorModal(message) {
     
     modalTitle.textContent = '⚠️ ERROR';
     modalMessage.textContent = message;
-    modal.style.display = 'flex';  // CORREGIDO: 'flex' en lugar de 'block'
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
 
@@ -221,7 +184,6 @@ function setupModalClose() {
     
     if (!confirmationModal) return;
     
-    // Cerrar con botón X
     if (modalCloseBtn) {
         modalCloseBtn.addEventListener('click', function() {
             confirmationModal.style.display = 'none';
@@ -229,7 +191,6 @@ function setupModalClose() {
         });
     }
     
-    // Cerrar con botón ACEPTAR
     if (modalAcceptBtn) {
         modalAcceptBtn.addEventListener('click', function() {
             confirmationModal.style.display = 'none';
@@ -237,7 +198,6 @@ function setupModalClose() {
         });
     }
     
-    // Cerrar al hacer clic fuera
     confirmationModal.addEventListener('click', function(e) {
         if (e.target === this) {
             confirmationModal.style.display = 'none';
@@ -245,7 +205,6 @@ function setupModalClose() {
         }
     });
     
-    // Cerrar con tecla ESC - CORREGIDO
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && confirmationModal.style.display === 'flex') {
             confirmationModal.style.display = 'none';
@@ -255,7 +214,7 @@ function setupModalClose() {
 }
 
 // ===========================================
-// VARIABLES GLOBALES DEL REPRODUCTOR
+// REPRODUCTOR DE MÚSICA - VARIABLES
 // ===========================================
 
 let currentTrackIndex = 0;
@@ -263,10 +222,6 @@ let isPlaying = false;
 let isShuffled = false;
 let isRepeating = false;
 let audioPlayer = null;
-
-// ===========================================
-// LISTA DE CANCIONES - ARCHIVOS DE INTERNET
-// ===========================================
 
 const tracks = [
     {
@@ -326,11 +281,11 @@ const tracks = [
 ];
 
 // ===========================================
-// FUNCIÓN PRINCIPAL DEL REPRODUCTOR
+// FUNCIÓN PRINCIPAL DEL REPRODUCTOR (CORREGIDA)
 // ===========================================
 
 function initMusicPlayer() {
-    console.log('🎧 Inicializando reproductor...');
+    console.log('🎧 Inicializando reproductor (sin scroll automático)...');
     
     const requiredElements = [
         'playBtn', 'prevBtn', 'nextBtn', 'progressBar',
@@ -345,10 +300,7 @@ function initMusicPlayer() {
         }
     });
     
-    if (!allElementsExist) {
-        console.error('❌ No se pueden inicializar los controles del reproductor');
-        return;
-    }
+    if (!allElementsExist) return;
     
     audioPlayer = new Audio();
     audioPlayer.preload = "metadata";
@@ -356,33 +308,27 @@ function initMusicPlayer() {
     
     setupAudioEvents();
     setupMainButtons();
-    loadTrack(currentTrackIndex);
+    
+    // SOLO MOSTRAR PRIMERA CANCIÓN, SIN REPRODUCIR
+    updateTrackInfo(tracks[0]);
     renderPlaylist();
     setupProgressBar();
     setupVolumeControl();
     
-    console.log('✅ Reproductor inicializado correctamente');
+    console.log('✅ Reproductor listo (sin autoplay)');
 }
 
 // ===========================================
-// FUNCIONES DEL REPRODUCTOR (MANTENIDAS)
+// FUNCIONES DEL REPRODUCTOR
 // ===========================================
 
 function setupAudioEvents() {
     if (!audioPlayer) return;
     
-    audioPlayer.addEventListener('loadedmetadata', function() {
-        updateTotalTime();
-    });
-    
+    audioPlayer.addEventListener('loadedmetadata', updateTotalTime);
     audioPlayer.addEventListener('error', function(e) {
-        console.error('❌ Error al cargar audio:', e);
-        const currentTrack = tracks[currentTrackIndex];
-        setTimeout(() => {
-            playNext();
-        }, 1000);
+        console.error('❌ Error de audio:', e);
     });
-    
     audioPlayer.addEventListener('ended', function() {
         if (isRepeating) {
             audioPlayer.currentTime = 0;
@@ -391,13 +337,11 @@ function setupAudioEvents() {
             playNext();
         }
     });
-    
     audioPlayer.addEventListener('timeupdate', updateProgressBar);
     audioPlayer.addEventListener('play', function() {
         isPlaying = true;
         updatePlayButton();
     });
-    
     audioPlayer.addEventListener('pause', function() {
         isPlaying = false;
         updatePlayButton();
@@ -614,10 +558,7 @@ function updateVolumeIcon(volume) {
 
 function renderPlaylist() {
     const playlist = document.getElementById('playlist');
-    if (!playlist) {
-        console.error('❌ No se encontró la playlist');
-        return;
-    }
+    if (!playlist) return;
     
     playlist.innerHTML = '';
     
@@ -665,10 +606,14 @@ function playTrackFromPlaylist(index) {
     
     setTimeout(() => {
         audioPlayer.play().catch(e => {
-            console.error('Error al reproducir desde playlist:', e);
+            console.error('Error al reproducir:', e);
         });
     }, 300);
 }
+
+// ===========================================
+// FUNCIÓN CORREGIDA - SIN SCROLL AUTOMÁTICO
+// ===========================================
 
 function updatePlaylistUI() {
     const playlistItems = document.querySelectorAll('.playlist-item');
@@ -678,9 +623,7 @@ function updatePlaylistUI() {
         
         if (parseInt(item.dataset.index) === currentTrackIndex) {
             item.classList.add('playing');
-            setTimeout(() => {
-                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
+            // SIN scrollIntoView - esto evita el desplazamiento automático
         }
     });
 }
@@ -752,85 +695,7 @@ function filterPlaylist(searchTerm) {
 }
 
 // ===========================================
-// FUNCIÓN DE NOTIFICACIONES (SIMPLIFICADA)
-// ===========================================
-
-function showNotification(message, type = 'info') {
-    console.log('💬 Notificación:', message);
-    
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.setAttribute('data-type', type);
-    notification.textContent = message;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.parentNode.removeChild(notification);
-        }
-    }, 3000);
-    
-    if (!document.querySelector('#notification-styles')) {
-        const style = document.createElement('style');
-        style.id = 'notification-styles';
-        style.textContent = `
-            .notification {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 12px 20px;
-                border-radius: 8px;
-                font-family: 'Montserrat', sans-serif;
-                font-size: 14px;
-                font-weight: 500;
-                z-index: 9999;
-                animation: slideIn 0.3s ease, slideOut 0.3s ease 2.7s;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                max-width: 300px;
-                border-left: 4px solid;
-            }
-            
-            .notification[data-type="info"] {
-                background: #000;
-                color: white;
-                border-left-color: #666;
-            }
-            
-            .notification[data-type="success"] {
-                background: #111;
-                color: #0f0;
-                border-left-color: #0f0;
-            }
-            
-            .notification[data-type="warning"] {
-                background: #111;
-                color: #ff0;
-                border-left-color: #ff0;
-            }
-            
-            .notification[data-type="error"] {
-                background: #111;
-                color: #f00;
-                border-left-color: #f00;
-            }
-            
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-}
-
-// ===========================================
-// GALERÍA FOTOGRÁFICA - FUNCIONES
+// GALERÍA Y MODAL
 // ===========================================
 
 function filterGallery(category) {
@@ -852,10 +717,6 @@ function filterGallery(category) {
         }
     });
 }
-
-// ===========================================
-// MODAL PARA IMÁGENES
-// ===========================================
 
 function setupImageModal() {
     const modal = document.getElementById('imageModal');
@@ -907,41 +768,5 @@ function setupImageModal() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-    });
-}
-
-// ===========================================
-// INICIALIZACIÓN SEGURA
-// ===========================================
-
-if (document.querySelector('.player-section')) {
-    setTimeout(() => {
-        if (!audioPlayer) {
-            initMusicPlayer();
-        }
-    }, 500);
-}
-
-// ===========================================
-// FUNCIÓN PARA PRUEBAS
-// ===========================================
-
-function testFormspreeDirect() {
-    console.log('🧪 Probando Formspree directamente...');
-    
-    fetch('https://formspree.io/f/xbdarpwg', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: '_subject=Test+Directo&name=Test&email=test@test.com&message=Probando+Formspree'
-    })
-    .then(response => {
-        console.log('Status:', response.status);
-        alert(response.ok ? '✅ FORMSPREE FUNCIONA' : '⚠️ Problema con Formspree');
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('❌ Error de red');
     });
 }
