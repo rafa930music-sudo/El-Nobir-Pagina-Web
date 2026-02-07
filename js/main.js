@@ -1,38 +1,140 @@
-// ===========================================
-// EL NOBIR - main.js CORREGIDO (SIN SCROLL AUTOMÁTICO)
-// ===========================================
-
+// En main.js - FUNCIÓN DE NAVEGACIÓN MÓVIL CORREGIDA
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 EL NOBIR - Sitio cargado');
-    
     // ===========================================
-    // INICIALIZAR REPRODUCTOR DE MÚSICA
+    // NAVEGACIÓN MÓVIL - VERSIÓN OPTIMIZADA
+    // ===========================================
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const body = document.body;
+
+    if (mobileToggle && navMenu) {
+        // Función para abrir/cerrar menú
+        function toggleMenu(open) {
+            if (typeof open === 'boolean') {
+                mobileToggle.classList.toggle('active', open);
+                navMenu.classList.toggle('active', open);
+            } else {
+                mobileToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            }
+            
+            // Bloquear scroll cuando el menú está abierto
+            if (navMenu.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+                body.style.position = 'fixed';
+                body.style.width = '100%';
+            } else {
+                body.style.overflow = '';
+                body.style.position = '';
+                body.style.width = '';
+            }
+        }
+        
+        // Función para cerrar menú
+        function closeMenu() {
+            mobileToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            body.style.overflow = '';
+            body.style.position = '';
+            body.style.width = '';
+        }
+
+        // Toggle del menú
+        mobileToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Cerrar menú al hacer clic en enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                closeMenu();
+            }
+        });
+        
+        // Cerrar menú al redimensionar ventana
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+        });
+    }
+
+    // ===========================================
+    // TOGGLE DE TEMA
+    // ===========================================
+    const themeToggle = document.querySelector('.toggle-btn');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Determinar tema inicial
+    let currentTheme = localStorage.getItem('theme');
+    if (!currentTheme) {
+        currentTheme = prefersDarkScheme.matches ? 'dark' : 'light';
+        localStorage.setItem('theme', currentTheme);
+    }
+    
+    // Aplicar tema inicial
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+    }
+    
+    function updateThemeIcon(theme) {
+        const sunIcon = document.querySelector('.sun-icon');
+        const moonIcon = document.querySelector('.moon-icon');
+        
+        if (!sunIcon || !moonIcon) return;
+        
+        if (theme === 'dark') {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        } else {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        }
+    }
+    
+    // Inicializar iconos de tema
+    updateThemeIcon(currentTheme);
+
+    // ===========================================
+    // REPRODUCTOR DE MÚSICA
     // ===========================================
     if (document.querySelector('.player-section')) {
         console.log('🎵 Página de discografía detectada');
-        
-        // INICIALIZAR PERO SIN CARGAR CANCIÓN AUTOMÁTICAMENTE
-        setTimeout(() => {
-            initMusicPlayer();
-        }, 500);
+        setTimeout(initMusicPlayer, 500);
     }
-    
+
     // ===========================================
-    // CONFIGURAR TABS DE SERVICIOS
+    // TABS DE SERVICIOS
     // ===========================================
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
     
     if (tabButtons.length > 0) {
-        console.log('🔧 Configurando tabs de servicios...');
-        
         tabButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const tabId = this.getAttribute('data-tab');
                 
+                // Remover clase active de todos
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 tabPanes.forEach(pane => pane.classList.remove('active'));
                 
+                // Agregar active al botón y panel seleccionado
                 this.classList.add('active');
                 const targetPane = document.getElementById(tabId);
                 if (targetPane) {
@@ -41,15 +143,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
+
     // ===========================================
-    // GALERÍA FOTOGRÁFICA - FILTRADO
+    // GALERÍA FOTOGRÁFICA
     // ===========================================
     const filterButtons = document.querySelectorAll('.filter-btn');
     
     if (filterButtons.length > 0) {
-        console.log('🖼️ Configurando galería fotográfica...');
-        
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const category = this.dataset.filter;
@@ -61,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
+
     // ===========================================
     // MODAL PARA IMÁGENES
     // ===========================================
@@ -69,154 +169,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (modal) {
         setupImageModal();
     }
-    
+
     // ===========================================
-    // CONFIGURAR FORMULARIOS FORMSPREE
+    // FORMULARIOS FORMSPREE
     // ===========================================
     setupFormspreeForms();
 });
 
 // ===========================================
-// FORMULARIOS FORMSPREE
+// REPRODUCTOR DE MÚSICA - VARIABLES Y FUNCIONES
 // ===========================================
-
-function setupFormspreeForms() {
-    const forms = document.querySelectorAll('form[action*="formspree"]');
-    
-    if (forms.length === 0) return;
-    
-    forms.forEach(form => {
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            const formId = this.id;
-            
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
-            submitBtn.disabled = true;
-            
-            try {
-                const formData = new FormData(this);
-                
-                const response = await fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                
-                if (response.ok) {
-                    let title = '¡MENSAJE ENVIADO!';
-                    let message = 'Gracias por tu mensaje. Te responderé en 48 horas.';
-                    
-                    if (formId === 'schedule-call-form') {
-                        title = '¡LLAMADA AGENDADA!';
-                        message = 'Solicitud recibida. Te confirmaré por email.';
-                    }
-                    
-                    showSuccessModal(title, message);
-                    this.reset();
-                } else {
-                    showErrorModal('Error al enviar. Intenta nuevamente.');
-                }
-                
-            } catch (error) {
-                showErrorModal('Error de conexión. Verifica tu internet.');
-            } finally {
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
-                }, 2000);
-            }
-        });
-    });
-    
-    setupModalClose();
-}
-
-// ===========================================
-// FUNCIONES DEL MODAL
-// ===========================================
-
-function showSuccessModal(title, message) {
-    const modal = document.getElementById('confirmationModal');
-    const modalTitle = modal.querySelector('h3');
-    const modalMessage = document.getElementById('modalMessage');
-    
-    if (!modal || !modalTitle || !modalMessage) {
-        alert(title + '\n' + message);
-        return;
-    }
-    
-    modalTitle.textContent = title;
-    modalMessage.textContent = message;
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    
-    setTimeout(() => {
-        if (modal.style.display === 'flex') {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    }, 5000);
-}
-
-function showErrorModal(message) {
-    const modal = document.getElementById('confirmationModal');
-    const modalTitle = modal.querySelector('h3');
-    const modalMessage = document.getElementById('modalMessage');
-    
-    if (!modal || !modalTitle || !modalMessage) {
-        alert('ERROR: ' + message);
-        return;
-    }
-    
-    modalTitle.textContent = '⚠️ ERROR';
-    modalMessage.textContent = message;
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function setupModalClose() {
-    const confirmationModal = document.getElementById('confirmationModal');
-    const modalCloseBtn = document.querySelector('.modal-close');
-    const modalAcceptBtn = document.getElementById('modalClose');
-    
-    if (!confirmationModal) return;
-    
-    if (modalCloseBtn) {
-        modalCloseBtn.addEventListener('click', function() {
-            confirmationModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-    }
-    
-    if (modalAcceptBtn) {
-        modalAcceptBtn.addEventListener('click', function() {
-            confirmationModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-    }
-    
-    confirmationModal.addEventListener('click', function(e) {
-        if (e.target === this) {
-            confirmationModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-    
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && confirmationModal.style.display === 'flex') {
-            confirmationModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-}
-
-// ===========================================
-// REPRODUCTOR DE MÚSICA - VARIABLES
-// ===========================================
-
 let currentTrackIndex = 0;
 let isPlaying = false;
 let isShuffled = false;
@@ -280,47 +242,40 @@ const tracks = [
     }
 ];
 
-// ===========================================
-// FUNCIÓN PRINCIPAL DEL REPRODUCTOR (CORREGIDA)
-// ===========================================
-
 function initMusicPlayer() {
-    console.log('🎧 Inicializando reproductor (sin scroll automático)...');
+    console.log('🎧 Inicializando reproductor...');
     
     const requiredElements = [
         'playBtn', 'prevBtn', 'nextBtn', 'progressBar',
         'playlist', 'currentTitle', 'currentArtist'
     ];
     
-    let allElementsExist = true;
-    requiredElements.forEach(id => {
-        if (!document.getElementById(id)) {
-            console.error(`❌ Elemento #${id} no encontrado`);
-            allElementsExist = false;
-        }
+    // Verificar que todos los elementos existan
+    const allElementsExist = requiredElements.every(id => {
+        const exists = !!document.getElementById(id);
+        if (!exists) console.error(`❌ Elemento #${id} no encontrado`);
+        return exists;
     });
     
     if (!allElementsExist) return;
     
+    // Crear instancia de Audio
     audioPlayer = new Audio();
     audioPlayer.preload = "metadata";
     audioPlayer.volume = 0.7;
     
+    // Configurar eventos y controles
     setupAudioEvents();
     setupMainButtons();
     
-    // SOLO MOSTRAR PRIMERA CANCIÓN, SIN REPRODUCIR
+    // Inicializar con primera canción
     updateTrackInfo(tracks[0]);
     renderPlaylist();
     setupProgressBar();
     setupVolumeControl();
     
-    console.log('✅ Reproductor listo (sin autoplay)');
+    console.log('✅ Reproductor listo');
 }
-
-// ===========================================
-// FUNCIONES DEL REPRODUCTOR
-// ===========================================
 
 function setupAudioEvents() {
     if (!audioPlayer) return;
@@ -611,10 +566,6 @@ function playTrackFromPlaylist(index) {
     }, 300);
 }
 
-// ===========================================
-// FUNCIÓN CORREGIDA - SIN SCROLL AUTOMÁTICO
-// ===========================================
-
 function updatePlaylistUI() {
     const playlistItems = document.querySelectorAll('.playlist-item');
     
@@ -623,7 +574,6 @@ function updatePlaylistUI() {
         
         if (parseInt(item.dataset.index) === currentTrackIndex) {
             item.classList.add('playing');
-            // SIN scrollIntoView - esto evita el desplazamiento automático
         }
     });
 }
@@ -770,52 +720,140 @@ function setupImageModal() {
         }
     });
 }
-// Toggle del tema
-const themeToggle = document.querySelector('.toggle-btn');
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-// Verificar tema guardado o preferencia del sistema
-const currentTheme = localStorage.getItem('theme') || 
-                    (prefersDarkScheme.matches ? 'dark' : 'light');
+// ===========================================
+// FORMULARIOS FORMSPREE
+// ===========================================
 
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
+function setupFormspreeForms() {
+    const forms = document.querySelectorAll('form[action*="formspree"]');
+    
+    if (forms.length === 0) return;
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            const formId = this.id;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
+            submitBtn.disabled = true;
+            
+            try {
+                const formData = new FormData(this);
+                
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    let title = '¡MENSAJE ENVIADO!';
+                    let message = 'Gracias por tu mensaje. Te responderé en 48 horas.';
+                    
+                    if (formId === 'schedule-call-form') {
+                        title = '¡LLAMADA AGENDADA!';
+                        message = 'Solicitud recibida. Te confirmaré por email.';
+                    }
+                    
+                    showSuccessModal(title, message);
+                    this.reset();
+                } else {
+                    showErrorModal('Error al enviar. Intenta nuevamente.');
+                }
+                
+            } catch (error) {
+                showErrorModal('Error de conexión. Verifica tu internet.');
+            } finally {
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            }
+        });
+    });
+    
+    setupModalClose();
 }
 
-// Cambiar tema al hacer clic
-themeToggle.addEventListener('click', function() {
-    let theme = document.documentElement.getAttribute('data-theme');
-    
-    if (theme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    }
-});
+// ===========================================
+// FUNCIONES DEL MODAL
+// ===========================================
 
-// Actualizar icono según el tema
-function updateThemeIcon() {
-    const theme = document.documentElement.getAttribute('data-theme');
-    const sunIcon = document.querySelector('.sun-icon');
-    const moonIcon = document.querySelector('.moon-icon');
+function showSuccessModal(title, message) {
+    const modal = document.getElementById('confirmationModal');
+    const modalTitle = modal.querySelector('h3');
+    const modalMessage = document.getElementById('modalMessage');
     
-    if (theme === 'dark') {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-    } else {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
+    if (!modal || !modalTitle || !modalMessage) {
+        alert(title + '\n' + message);
+        return;
     }
+    
+    modalTitle.textContent = title;
+    modalMessage.textContent = message;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    setTimeout(() => {
+        if (modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }, 5000);
 }
 
-// Observar cambios en el atributo data-theme
-const observer = new MutationObserver(updateThemeIcon);
-observer.observe(document.documentElement, { 
-    attributes: true, 
-    attributeFilter: ['data-theme'] 
-});
+function showErrorModal(message) {
+    const modal = document.getElementById('confirmationModal');
+    const modalTitle = modal.querySelector('h3');
+    const modalMessage = document.getElementById('modalMessage');
+    
+    if (!modal || !modalTitle || !modalMessage) {
+        alert('ERROR: ' + message);
+        return;
+    }
+    
+    modalTitle.textContent = '⚠️ ERROR';
+    modalMessage.textContent = message;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
 
-// Inicializar icono
-updateThemeIcon();
+function setupModalClose() {
+    const confirmationModal = document.getElementById('confirmationModal');
+    const modalCloseBtn = document.querySelector('.modal-close');
+    const modalAcceptBtn = document.getElementById('modalClose');
+    
+    if (!confirmationModal) return;
+    
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', function() {
+            confirmationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    if (modalAcceptBtn) {
+        modalAcceptBtn.addEventListener('click', function() {
+            confirmationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    confirmationModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            confirmationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && confirmationModal.style.display === 'flex') {
+            confirmationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
