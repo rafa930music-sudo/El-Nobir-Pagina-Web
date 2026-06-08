@@ -2,215 +2,227 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Nobir | Mi Historia - De la Música a la Fotografía</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>ELNOBIR | Artista de Reguetón - Presskit Oficial</title>
     
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Presskit profesional de ELNOBIR (Pau Constantí): artista de reguetón en Barcelona. Música, videoclips, rider técnico y booking.">
+    <meta name="keywords" content="elnobir, pau constantí, presskit, artista reguetón barcelona, rider técnico, booking, música urbana">
+    <meta name="author" content="Pau Constantí">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
     
-    <!-- Estilos -->
-    <link rel="stylesheet" href="css/main.css">
+    <meta property="og:title" content="ELNOBIR | Artista de Reguetón">
+    <meta property="og:description" content="Dossier profesional para prensa, festivales y booking.">
+    <meta property="og:url" content="https://elnobir.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://elnobir.com/images/elnobir-perfil.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ELNOBIR | Artista de Reguetón">
+    <meta name="twitter:description" content="Dossier profesional para prensa, festivales y booking.">
+    <meta name="twitter:image" content="https://elnobir.com/images/elnobir-perfil.jpg">
     
-    <!-- Favicon -->
-    <link rel="icon" href="assets/favicon.ico">
+    <link rel="canonical" href="https://elnobir.com">
+    <link rel="alternate" hreflang="es" href="https://elnobir.com">
+    
+    <link rel="icon" type="image/jpeg" href="images/elnobir-perfil.jpg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- MI CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navegación -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">EN</div>
-                <div class="logo-text">
-                    <div class="logo-main">EL NOBIR</div>
-                    <div class="logo-sub">MI HISTORIA</div>
-                </div>
-            </a>
-            
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link active">INICIO</a></li>
-                <li class="nav-item"><a href="discografia.html" class="nav-link">DISCROGRAFÍA</a></li>
-                <li class="nav-item"><a href="portafolio.html" class="nav-link">PORTAFOLIO</a></li>
-                <li class="nav-item"><a href="contacto.html" class="nav-link">CONTACTO</a></li>
+
+    <div class="custom-cursor" id="customCursor"></div>
+
+    
+    <!-- Preloader - Partículas + Glitch -->
+    <div id="preloader" aria-hidden="true">
+        <canvas class="preloader-particles-bg" id="preloaderParticlesBg" aria-hidden="true"></canvas>
+        <div class="preloader-text">ELNOBIR</div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo" aria-label="ELNOBIR - Ir al inicio">ELNOBIR</a>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#about" role="menuitem">Sobre mí</a></li>
+                <li role="none"><a href="#musica" role="menuitem">Música</a></li>
+                <li role="none"><a href="#videos" role="menuitem">Videoclips</a></li>
+                <li role="none"><a href="#presskit" role="menuitem">Presskit</a></li>
+                <li role="none"><a href="#booking" class="nav-cta" role="menuitem">Booking</a></li>
             </ul>
-            
-            <button class="mobile-toggle">
-                <span class="toggle-line"></span>
-                <span class="toggle-line"></span>
-                <span class="toggle-line"></span>
-            </button>
+            <div class="nav-actions">
+                <div class="nav-social" aria-label="Redes sociales">
+                    <a href="https://www.instagram.com/elnobir/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ELNOBIR"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@elnobir" target="_blank" rel="noopener noreferrer" aria-label="YouTube de ELNOBIR"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="https://open.spotify.com/artist/2dgNUOfjtguki04EaDh2m2" target="_blank" rel="noopener noreferrer" aria-label="Spotify de ELNOBIR"><i class="fab fa-spotify" aria-hidden="true"></i></a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo oscuro/claro" type="button">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" type="button">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Personal -->
-    <section class="hero personal-hero">
-        <div class="hero-background"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">MI HISTORIA</h1>
-                <p class="hero-subtitle">De las notas musicales a los fotogramas</p>
-                
-          <div class="personal-intro" style="text-align: center;">
-    <p style="display: inline-block; font-style: italic; font-size: 1.2rem;">
-        La música es mi voz, la fotografía mi mirada<br>
-        Ambas cuentan mi historia
-    </p>
-</div>
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <button class="mobile-menu-close" id="mobileClose" aria-label="Cerrar menú" type="button">&times;</button>
+        <a href="#home">Inicio</a>
+        <a href="#about">Sobre mí</a>
+        <a href="#musica">Música</a>
+        <a href="#videos">Videoclips</a>
+        <a href="#presskit">Presskit</a>
+        <a href="#booking">Booking</a>
+        <div class="mobile-social">
+            <a href="https://www.instagram.com/elnobir/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/@elnobir" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+            <a href="https://open.spotify.com/artist/2dgNUOfjtguki04EaDh2m2" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fab fa-spotify" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <canvas class="hero-particles" id="particles" aria-hidden="true"></canvas>
+        <div class="hero-content">
+            <h1>EL<span class="neon-text">NOBIR</span></h1>
+            <div class="hero-actions">
+                <a href="#musica" class="btn btn-neon btn-lg"><i class="fas fa-play" aria-hidden="true"></i> Escuchar Música</a>
+                <a href="#booking" class="btn btn-outline btn-lg"><i class="fas fa-calendar-check" aria-hidden="true"></i> Contratar</a>
             </div>
         </div>
-        
-        <div class="hero-scroll">
-            <span>CONOCE MI CAMINO</span>
-            <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-tag">Sobre mí</div>
+                <h2>Pau <span class="neon-text">Constantí</span></h2>
+            </div>
+            <div class="about-grid" data-aos="fade-up">
+                <img src="images/elnobir-perfil.jpg" alt="ELNOBIR - Pau Constantí, artista de reguetón" loading="lazy" data-aos="fade-right">
+                <div class="about-text" data-aos="fade-left">
+                    <p>Soy <strong>Pau Constantí</strong>, conocido como <strong>ELNOBIR</strong>. Artista de reguetón desde Barcelona. Mi música fusiona ritmos urbanos con melodías pegadizas, creando un estilo fresco y bailable.</p>
+                    <p>También dirijo y produzco mis propios videoclips, construyendo una identidad visual única. Cada letra, cada beat y cada plano nacen desde la autenticidad del underground barcelonés.</p>
+                    <p>Estoy creando un sonido que representa a mi generación, llevando el reguetón a otro nivel con energía, actitud y conexión real.</p>
+                </div>
+            </div>
         </div>
     </section>
-    
-    <!-- Toggle de Tema -->
-<div class="theme-toggle">
-    <button class="toggle-btn" aria-label="Cambiar tema">
-        <i class="sun-icon">☀️</i>
-        <i class="moon-icon">🌙</i>
-    </button>
-</div>
 
-    <!-- Mi Historia Completa -->
-    <section class="section story-section">
+    <!-- MÚSICA -->
+    <section id="musica" class="dark">
         <div class="container">
-            <div class="timeline">
-                <!-- Capítulo 1: Los Inicios -->
-                <div class="timeline-chapter">
-                    <div class="chapter-header">
-                        <div class="chapter-number">01</div>
-                        <h2 class="chapter-title">LOS COMIENZOS</h2>
-                        <div class="chapter-year">2020 - 2022</div>
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-tag">Discografía</div>
+                <h2>Escucha <span class="neon-text">ELNOBIR</span></h2>
+            </div>
+            <div class="track-list" data-aos="fade-up">
+                <div class="track-item">
+                    <div class="track-info"><div class="track-number">01</div><div class="track-details"><div class="track-title">LUNA FREESTYLE</div><div class="track-meta">Reguetón · 96 BPM · 2025</div></div></div>
+                    <div class="track-actions"><button class="play-btn" data-track="0" aria-label="Reproducir LUNA FREESTYLE" type="button"><i class="fas fa-play" aria-hidden="true"></i></button></div>
+                </div>
+                <div class="track-item">
+                    <div class="track-info"><div class="track-number">02</div><div class="track-details"><div class="track-title">BARCELONA SOUND</div><div class="track-meta">Reguetón · 100 BPM · 2025</div></div></div>
+                    <div class="track-actions"><button class="play-btn" data-track="1" aria-label="Reproducir BARCELONA SOUND" type="button"><i class="fas fa-play" aria-hidden="true"></i></button></div>
+                </div>
+                <div class="track-item">
+                    <div class="track-info"><div class="track-number">03</div><div class="track-details"><div class="track-title">NOBIR FLOW</div><div class="track-meta">Reguetón · 92 BPM · 2024</div></div></div>
+                    <div class="track-actions"><button class="play-btn" data-track="2" aria-label="Reproducir NOBIR FLOW" type="button"><i class="fas fa-play" aria-hidden="true"></i></button></div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="https://www.youtube.com/@elnobir" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-youtube" aria-hidden="true"></i> Ver en YouTube</a>
+                <a href="https://open.spotify.com/artist/2dgNUOfjtguki04EaDh2m2" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-spotify" aria-hidden="true"></i> Escuchar en Spotify</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEOCLIPS -->
+    <section id="videos">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-tag">Videoclips</div>
+                <h2>Últimos <span class="neon-text">Visuales</span></h2>
+            </div>
+            <div class="video-grid">
+                <div class="video-card" data-aos="fade-up"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen loading="lazy" title="ELNOBIR - Videoclip Oficial 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-presentation"></iframe></div>
+                <div class="video-card" data-aos="fade-up" data-aos-delay="100"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen loading="lazy" title="ELNOBIR - Videoclip Oficial 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-presentation"></iframe></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESSKIT -->
+    <section id="presskit" class="dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-tag">Presskit</div>
+                <h2>One Sheet & <span class="neon-text">Media Kit</span></h2>
+                <p class="section-subtitle">Información ejecutiva para prensa, festivales, booking y colaboradores.</p>
+            </div>
+            <div data-aos="fade-up">
+                <div class="accordion">
+                    <button class="accordion-header" id="bio-header" aria-expanded="false" aria-controls="bio-content" type="button"><span><i class="fas fa-user" aria-hidden="true"></i> Biografía</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                    <div id="bio-content" class="accordion-content" role="region" aria-labelledby="bio-header">
+                        <p class="press-bio-short">ELNOBIR (Pau Constantí) es un artista de reguetón nacido en Barcelona. Su música fusiona ritmos urbanos con melodías pegadizas, creando un estilo fresco, callejero y bailable.</p>
+                        <p class="press-bio-long">A lo largo de los últimos años, ELNOBIR ha ido perfeccionando su propuesta: beats contundentes, flows versátiles y letras que hablan de experiencias reales. Su música bebe de artistas como Bad Bunny, Rauw Alejandro o Feid, pero con un toque mediterráneo que lo diferencia. En 2024 lanzó sus primeros singles, que ya han acumulado miles de reproducciones. Además, él mismo dirige, graba y edita sus videoclips, manteniendo un control total sobre la estética de su proyecto: planos nocturnos, luces de neón y paisajes urbanos de Barcelona. Actualmente trabaja en su primer EP y ha comenzado a dar conciertos en salas de la ciudad.</p>
                     </div>
-                    
-                    <div class="chapter-content">
-                        <div class="story-image">
-                            <img src="assets/images/inicios.jpg" alt="Mis inicios musicales">
-                            <div class="image-caption">Mis primeros estudios caseros</div>
-                        </div>
-                        
-                        <div class="story-text">
-                            <h3>CUANDO TODO EMPEZÓ</h3>
-                            <p>
-                            Todo comenzó en mi habitación a los 12-13 años, justo en esa época rara del confinamiento. Con un micrófono de juguete y el móvil de mi madre, grababa mis primeras rimas entre clase online y clase online. La música era mi escape, mi forma de entender el mundo y expresar lo que sentía en un momento donde no podía salir de casa.
-                        </p>
-                            <p>
-                                Pasaba tardes enteras viendo tutoriales en YouTube, intentando entender qué era una pista, un beat, una mezcla. Grababa con audífonos rotos y editaba con programas piratas que apenas entendía. Eran tiempos de prueba y error, pero cada fallo me enseñaba algo nuevo.
-                            <div class="memory">
-                                <i class="fas fa-quote-left"></i>
-                                <p class="memory-text">"Recuerdo la primera vez que me animé a mostrarle un audio a mi primo por WhatsApp. Me dijo que sonaba fatal, pero que la letra estaba bien. Eso me bastó para seguir." 
-                                </p>
-                            </div>
+                </div>
+                <div class="accordion">
+                    <button class="accordion-header" id="statement-header" aria-expanded="false" aria-controls="statement-content" type="button"><span><i class="fas fa-feather-alt" aria-hidden="true"></i> Statement artístico</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                    <div id="statement-content" class="accordion-content" role="region" aria-labelledby="statement-header">
+                        <div class="statement-quote">"Hago reguetón porque es el ritmo que me ha visto crecer. Me gusta mezclar lo oscuro con lo bailable, la calle con la melodía. Cada canción es un reflejo de un momento, de una noche, de una sensación. Quiero que quien me escuche sienta que está en Barcelona, que huele el asfalto después de la lluvia y que el bajo le recuerde que aún queda mucho por bailar. Mi arte es honesto, directo y sin filtros."</div>
+                    </div>
+                </div>
+                <div class="accordion">
+                    <button class="accordion-header" id="works-header" aria-expanded="false" aria-controls="works-content" type="button"><span><i class="fas fa-music" aria-hidden="true"></i> Obras destacadas</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                    <div id="works-content" class="accordion-content" role="region" aria-labelledby="works-header">
+                        <div class="track-list">
+                            <div class="track-item"><div class="track-info"><div class="track-number">01</div><div class="track-details"><div class="track-title">LUNA FREESTYLE</div><div class="track-meta">2025 · Single · Drill latino</div></div></div><div class="track-actions"><button class="play-btn-feat" data-track-feat="0" aria-label="Reproducir LUNA FREESTYLE" type="button"><i class="fas fa-play" aria-hidden="true"></i></button></div></div>
+                            <div class="track-item"><div class="track-info"><div class="track-number">02</div><div class="track-details"><div class="track-title">BARCELONA SOUND</div><div class="track-meta">2025 · Single · Himno urbano</div></div></div><div class="track-actions"><button class="play-btn-feat" data-track-feat="1" aria-label="Reproducir BARCELONA SOUND" type="button"><i class="fas fa-play" aria-hidden="true"></i></button></div></div>
+                            <div class="track-item"><div class="track-info"><div class="track-number">03</div><div class="track-details"><div class="track-title">NOBIR FLOW</div><div class="track-meta">2024 · Single · Reguetón clásico</div></div></div><div class="track-actions"><button class="play-btn-feat" data-track-feat="2" aria-label="Reproducir NOBIR FLOW" type="button"><i class="fas fa-play" aria-hidden="true"></i></button></div></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Capítulo 2: El Despertar Musical -->
-                <div class="timeline-chapter">
-                    <div class="chapter-header">
-                        <div class="chapter-number">02</div>
-                        <h2 class="chapter-title">EL DESPERTAR MUSICAL</h2>
-                        <div class="chapter-year">2022 - 2023</div>
-                    </div>
-                    
-                    <div class="chapter-content reverse">
-                        <div class="story-text">
-                            <h3>ENCUENTRO CON MI VOZ</h3>
-                            <p>
-                                Con 14-15 años empecé a tomármelo más en serio. Grababa covers y temas propios con un micrófono mejorcito que me regalaron por mi cumpleaños. Subía cosas a SoundCloud y redes, sin esperar mucho, solo por el gustazo de compartirlo.  </p>
-                            <p>
-                               Empecé a hablar con otros chicos de mi ciudad que también hacían música. Quedábamos en parques, en casas de amigos, grabábamos con un solo micrófono y mucha vergüenza. Fue cuando descubrí que no solo quería rapear, sino también producir. Quería crear mis propios ritmos.
-
-</p>
-                            
-                            <ul class="milestones">
-                                <li><i class="fas fa-check-circle"></i> Primer EP lanzado</li>
-                                <li><i class="fas fa-check-circle"></i> Primera colaboración oficial</li>
-                                <li><i class="fas fa-check-circle"></i> Primer concierto en vivo</li>
-                                <li><i class="fas fa-check-circle"></i> Creación de mi home studio</li>
-                            </ul>
+                <div class="accordion">
+                    <button class="accordion-header" id="rider-header" aria-expanded="false" aria-controls="rider-content" type="button"><span><i class="fas fa-clipboard-list" aria-hidden="true"></i> One Sheet & Rider técnico</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                    <div id="rider-content" class="accordion-content" role="region" aria-labelledby="rider-header">
+                        <div class="rider-grid">
+                            <div class="rider-item"><span class="rider-label">Género</span><span class="rider-value">Reguetón / Urbano</span></div>
+                            <div class="rider-item"><span class="rider-label">Duración show</span><span class="rider-value">45-60 min (adaptable)</span></div>
+                            <div class="rider-item"><span class="rider-label">Formato</span><span class="rider-value">Pista + voz en vivo</span></div>
+                            <div class="rider-item"><span class="rider-label">Necesidades mínimas</span><span class="rider-value">PA completo, 2 monitores, micrófono inalámbrico</span></div>
+                            <div class="rider-item"><span class="rider-label">Extras</span><span class="rider-value">Sesiones acústicas / banda bajo presupuesto</span></div>
+                            <div class="rider-item"><span class="rider-label">Idiomas</span><span class="rider-value">Español · Catalán · Inglés (básico)</span></div>
                         </div>
-                        
-                        <div class="story-image">
-                            <img src="assets/images/despertar-musical.jpg" alt="Mis primeras producciones">
-                            <div class="image-caption">Mi primer home studio profesional</div>
-                        </div>
+                        <div class="rider-note">Disponible para entrevistas, sesiones en vivo y contenido exclusivo.</div>
                     </div>
                 </div>
-
-                <!-- Capítulo 3: El Descubrimiento Visual -->
-                <div class="timeline-chapter">
-                    <div class="chapter-header">
-                        <div class="chapter-number">03</div>
-                        <h2 class="chapter-title">EL DESCUBRIMIENTO VISUAL</h2>
-                        <div class="chapter-year">2019 - 2020</div>
-                    </div>
-                    
-                    <div class="chapter-content">
-                        <div class="story-image">
-                            <img src="assets/images/descubrimiento-visual.jpg" alt="Mis primeras fotos">
-                            <div class="image-caption">Mi primera cámara profesional</div>
-                        </div>
-                        
-                        <div class="story-text">
-                            <h3>CUANDO LA MÚSICA ENCONTRÓ SU IMAGEN</h3>
-                            <p>
-                                Siempre fui muy visual. Mientras creaba música, imaginaba escenas, colores, atmósferas. 
-                                Un día, para ahorrar costes en un video clip, decidí aprender a usar una cámara.
-                            </p>
-                            <p>
-                                Lo que empezó como necesidad se convirtió en pasión. Descubrí que la fotografía me permitía 
-                                contar historias de otra manera, complementando perfectamente mi música.
-                            </p>
-                            
-                            <div class="transition">
-                                <h4><i class="fas fa-sync-alt"></i> LA TRANSICIÓN NATURAL</h4>
-                                <p>
-                                    No fue un cambio brusco, sino una evolución natural. De crear atmósferas con sonidos 
-                                    pasé a crearlas con imágenes. La misma sensibilidad, distinto lenguaje.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Capítulo 4: La Fusión Creativa -->
-                <div class="timeline-chapter">
-                    <div class="chapter-header">
-                        <div class="chapter-number">04</div>
-                        <h2 class="chapter-title">LA FUSIÓN CREATIVA</h2>
-                        <div class="chapter-year">2021 - ACTUALIDAD</div>
-                    </div>
-                    
-                    <div class="chapter-content reverse">
-                        <div class="story-text">
-                            <h3>DOS LENGUAJES, UNA VISIÓN</h3>
-                            <p>
-                                Hoy no me defino solo como músico o fotógrafo. Soy un <strong>creador de experiencias</strong>. 
-                                La música y la imagen son las dos caras de mi expresión creativa.
-                            </p>
-                            <p>
-                                Cuando compongo, veo imágenes. Cuando fotografío, escucho música. Es un diálogo constante 
-                                entre lo auditivo y lo visual que enriquece ambos trabajos.
-                            </p>
-                            
-                            <div class="philosophy">
-                                <h4><i class="fas fa-brain"></i> MI FILOSOFÍA CREATIVA</h4>
-                                <p>
-                                    "Creo que todo arte busca lo mismo: conectar, emocionar, contar. Ya sea con una canción 
-                                    o con una fotografía, el objetivo es hacer sentir algo al que lo experimenta."
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="story-image">
-                            <img src="assets/images/fusion-creativa.jpg" alt="Trabajando en estudio">
-                            <div class="image-caption">En mi estudio - donde todo se conecta</div>
+                <div class="accordion">
+                    <button class="accordion-header" id="contact-header" aria-expanded="false" aria-controls="contact-content" type="button"><span><i class="fas fa-envelope" aria-hidden="true"></i> Contacto profesional</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                    <div id="contact-content" class="accordion-content" role="region" aria-labelledby="contact-header">
+                        <div class="contact-row-modern">
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=eelnobir@gmail.com&su=Booking%20-%20ELNOBIR&body=Hola%20Pau,%0A%0AMe%20gustaria%20contratarte%20para:%0A%0A-%20Tipo%20de%20evento:%0A-%20Fecha:%0A-%20Lugar:%0A-%20Presupuesto:%0A%0AGracias!%0A[Nombre]%0A[Telefono]" class="press-btn-modern" target="_blank" rel="noopener noreferrer"><i class="far fa-envelope" aria-hidden="true"></i> Gmail booking</a>
+                            <a href="https://wa.me/34652145839?text=Hola%20Pau,%0A%0AMe%20gustaria%20contratarte%20para:%0A%0A-%20Tipo%20de%20evento:%0A-%20Fecha:%0A-%20Lugar:%0A-%20Presupuesto:%0A%0AGracias!%0A[Nombre]%0A[Telefono]" class="press-btn-modern" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp booking</a>
+                            <a href="https://ig.me/m/elnobir" class="press-btn-modern" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a>
                         </div>
                     </div>
                 </div>
@@ -218,190 +230,73 @@
         </div>
     </section>
 
-    <!-- Mi Equipo y Proceso -->
-    <section class="section process-section">
+    <!-- BOOKING -->
+    <section id="booking" class="deep">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-tag">Booking</div>
+                <h2>Contrata a <span class="neon-text">ELNOBIR</span></h2>
+                <p class="section-subtitle">Conciertos, sesiones de estudio, videoclips y colaboraciones.</p>
+            </div>
+            <form class="booking-form" data-aos="fade-up" action="https://formspree.io/f/xbdarpwg" method="POST" novalidate>
+                <label for="nombre">Tu nombre *</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required autocomplete="name">
+                <label for="email">Tu email *</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email">
+                <label for="motivo">¿Qué necesitas? *</label>
+                <select id="motivo" name="motivo" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="concierto">Concierto / Show en vivo</option>
+                    <option value="videoclip">Videoclip / Producción visual</option>
+                    <option value="colaboracion">Colaboración Musical</option>
+                    <option value="prensa">Prensa / Entrevista</option>
+                    <option value="otros">Otros</option>
+                </select>
+                <label for="mensaje">Cuéntame los detalles *</label>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntame los detalles de tu propuesta..." required></textarea>
+                <button type="submit" class="btn btn-neon" style="width:100%;"><i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section id="social">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">MI EQUIPO Y PROCESO</h2>
-                <p class="section-subtitle">Las herramientas y métodos detrás de mi creatividad</p>
+                <div class="section-tag">Sígueme</div>
+                <h2>Redes <span class="neon-text">Sociales</span></h2>
             </div>
-            
-            <div class="process-dual">
-                <!-- Lado Musical -->
-                <div class="process-side music-side">
-                    <div class="process-header">
-                        <i class="fas fa-music"></i>
-                        <h3>EN EL ESTUDIO DE MÚSICA</h3>
-                    </div>
-                    
-                    <div class="equipment-list">
-                        <h4>EQUIPO PRINCIPAL:</h4>
-                        <ul>
-                            <li>(Poner Lo que quiera)</li>
-                            <li>(Poner Lo que quiera)</li>
-                            <li>(Poner Lo que quiera)</li>
-                            <li>(Poner Lo que quiera)</li>
-                            <li>(Poner Lo que quiera)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="workflow">
-                        <h4>MI FLUJO DE TRABAJO:</h4>
-                        <ol>
-                            <li><strong>Inspiración</strong> - Escucho música variada</li>
-                            <li><strong>Creación del Beat</strong> - Base rítmica</li>
-                            <li><strong>Composición</strong> - Melodías y armonías</li>
-                            <li><strong>Letras y Voces</strong> - El mensaje</li>
-                            <li><strong>Mezcla y Mastering</strong> - El pulido final</li>
-                        </ol>
-                    </div>
-                </div>
-                
-                <!-- Lado Visual -->
-                <div class="process-side visual-side">
-                    <div class="process-header">
-                        <i class="fas fa-camera"></i>
-                        <h3>EN SESIONES VISUALES</h3>
-                    </div>
-                    
-                    <div class="equipment-list">
-                        <h4>EQUIPO PRINCIPAL:</h4>
-                        <ul>
-                            <li>(Poner Lo que quiera)</li>
-                            <li>(Poner Lo que quiera)</li>
-                            <li>(Poner Lo que quiera)</li>
-                            <li>(Poner Lo que quiera)</li>
-                            <li>(Poner Lo que quiera)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="workflow">
-                        <h4>MI FLUJO DE TRABAJO:</h4>
-                        <ol>
-                            <li><strong>Concepto</strong> - Idea y moodboard</li>
-                            <li><strong>Preproducción</strong> - Planificación</li>
-                            <li><strong>Sesión</strong> - Captura y dirección</li>
-                            <li><strong>Selección</strong> - Elección de tomas</li>
-                            <li><strong>Edición y Color</strong> - Estilo visual</li>
-                        </ol>
-                    </div>
-                </div>
+            <div class="social-grid">
+                <a href="https://www.instagram.com/elnobir/" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/@elnobir" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a href="https://open.spotify.com/artist/2dgNUOfjtguki04EaDh2m2" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Spotify"><i class="fab fa-spotify" aria-hidden="true"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Valores y Visión -->
-    <section class="section values-section">
+        <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">MIS VALORES CREATIVOS</h2>
-                <p class="section-subtitle">Lo que guía cada proyecto que emprendo</p>
-            </div>
-            
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>AUTENTICIDAD</h3>
-                    <p>Cada trabajo refleja mi esencia. No sigo modas, creo desde lo genuino.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>EVOLUCIÓN CONSTANTE</h3>
-                    <p>Aprendo en cada proyecto. La comodidad es el enemigo del crecimiento.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>COLABORACIÓN</h3>
-                    <p>Creo en el poder de unir talentos. Las mejores ideas surgen en equipo.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>ATENCIÓN AL DETALLE</h3>
-                    <p>La magia está en los pequeños detalles que hacen grande un trabajo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mi Inspiración -->
-    <section class="section inspiration-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">MI INSPIRACIÓN</h2>
-                <p class="section-subtitle">Lo que alimenta mi creatividad día a día</p>
-            </div>
-            
-            <div class="inspiration-content">
-                <div class="inspiration-quote">
-                    <i class="fas fa-quote-left quote-icon"></i>
-                    <p class="quote-text">
-                        "Me inspira la vida cotidiana, las conversaciones en el metro, 
-                        la luz del atardecer en la ciudad, la energía de un concierto, 
-                        la historia detrás de cada rostro. Todo puede convertirse en arte."
-                    </p>
-                    <div class="quote-author">- El Nobir</div>
-                </div>
-                
-                <div class="inspiration-sources">
-                    <h3>FUENTES DE INSPIRACIÓN:</h3>
-                    <ul>
-                        <li><i class="fas fa-music"></i> <strong>Música:</strong> (Poner Lo que quiera) </li>
-                        <li><i class="fas fa-film"></i> <strong>Cine:</strong> (Poner Lo que quiera)  </li>
-                        <li><i class="fas fa-palette"></i> <strong>Arte:</strong> (Poner Lo que quiera)  </li>
-                        <li><i class="fas fa-book"></i> <strong>Literatura:</strong> (Poner Lo que quiera) </li>
-                        <li><i class="fas fa-globe-europe"></i> <strong>Viajes:</strong> (Poner Lo que quiera) </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-   <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3 class="footer-title">EL NOBIR</h3>
-                    <p class="footer-desc">Artista • Productor • Creador Visual</p>
-                    <p class="footer-quote">"Creando puentes entre sonidos e imágenes"</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>EXPLORAR</h4>
-                    <ul>
-                        <li><a href="index.html">Mi Historia</a></li>
-                        <li><a href="discografia.html">Discografía</a></li>
-                        <li><a href="portafolio.html">Portafolio Visual</a></li>
-                        <li><a href="contacto.html">Contacto & Colaboraciones</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h4>CONECTA</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Barcelona, España</p>
-                    <p><i class="fas fa-calendar-alt"></i> Disponible para proyectos</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026  El Nobir. Todos los derechos reservados.</p>
+            <div class="footer-logo">ELNOBIR</div>
+            <p class="footer-text">&copy; 2025 · Pau Constantí · Barcelona · Artista de Reguetón · <a href="https://mail.google.com/mail/?view=cm&fs=1&to=eelnobir@gmail.com&su=Booking%20-%20ELNOBIR" target="_blank" rel="noopener noreferrer">eelnobir@gmail.com</a></p>
+            <div class="footer-credits">
+                <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/" target="_blank" rel="noopener noreferrer" title="Diseño y desarrollo por [Tu nombre]">
+                    <img src="images/logo-rafa930.webp" alt="[Rafa 930]" class="credit-logo">
+                    <span>by [Rafa 930]</span>
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- BOTONES FLOTANTES -->
+    <div class="floating-btns" aria-label="Contacto rápido">
+        <a href="https://wa.me/34652145839?text=Hola%20Pau,%0A%0AMe%20gustaria%20contratarte%20para:%0A%0A-%20Tipo%20de%20evento:%0A-%20Fecha:%0A-%20Lugar:%0A-%20Presupuesto:%0A%0AGracias!%0A[Nombre]%0A[Telefono]" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp" aria-label="Contactar por WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=eelnobir@gmail.com&su=Booking%20-%20ELNOBIR" class="floating-btn gmail" aria-label="Enviar correo electrónico" target="_blank" rel="noopener noreferrer"><i class="far fa-envelope" aria-hidden="true"></i></a>
+    </div>
+    <button class="back-to-top" id="backToTop" aria-label="Volver al inicio" type="button"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
